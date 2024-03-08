@@ -1,0 +1,4 @@
+# pip install -r로 한 번에 여러 패키지를 설치할 때 사용 됨
+Django==4.2.11
+djangorestframework==3.14.0
+mysqlclient==2.2.4
