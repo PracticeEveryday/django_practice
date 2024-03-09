@@ -4,6 +4,7 @@ from profiles_api import views
 
 router = DefaultRouter()
 router.register('hello-viewset', views.HelloViewSet, basename='hello-viewset')
+router.register('profile', views.UserProfileViewSet)    # queryset덕에 basename을 지정하지 않아도 된다!
 
 urlpatterns = [
     path('hello-view/', views.HelloApiView.as_view()),
