@@ -2,9 +2,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
+from rest_framework import filters
 
 from profiles_api import serializers  # 우리가 만든 profiles_api의 직렬화가 들어옴
 from profiles_api import models
+from profiles_api import permissions
 
 
 class HelloApiView(APIView):
@@ -99,3 +102,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     """Handle creating and updating profiles"""
     serializer_class = serializers.UserProfileSerializer
     queryset = models.UserProfile.objects.all()
+    authentication_classes = (TokenAuthentication,) # 여러개의 권한 체크가 들어갈 수 있음.
+    permission_classes = (permissions.UpdateOwnProfile,)
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('name', 'email', )
