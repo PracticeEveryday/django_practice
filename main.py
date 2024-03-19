@@ -47,3 +47,68 @@ print(statistics.mean(grades))
 
 import random
 print(random.choice(students))
+
+
+# class A:
+#     def greeting(self):
+#         print('안녕하세요. A입니다.')
+#
+#
+# class B(A):
+#     def greeting(self):
+#         print('안녕하세요. B입니다.')
+#
+#
+# class C(A):
+#     def greeting(self):
+#         print('안녕하세요. C입니다.')
+#
+#
+# class D(B, C):
+#     pass
+#
+# class E(C, B):
+#     pass
+#
+#
+# x = D()
+# x.greeting()  # 안녕하세요. B입니다.
+# print(D.mro())
+#
+# x2 = E()
+# x2.greeting()  # 안녕하세요. C입니다.
+# print(E.mro())
+
+
+class Animal:
+    def eat(self):
+        print("Eating")
+
+
+class FlyingAnimal(Animal):
+    def fly(self):
+        print("Flying")
+
+
+class SwimmingAnimal(Animal):
+    def swim(self):
+        print("Swimming")
+
+
+class Bird(FlyingAnimal):
+    def fly(self):
+        print("Flying")
+    pass
+
+
+class Fish(SwimmingAnimal):
+    pass
+
+
+class Duck(Bird, SwimmingAnimal):  # 다이아몬드 상속
+    pass
+
+duck = Duck()
+duck.eat()          # Eating
+duck.fly()          # Flying
+duck.swim()         # Swimming

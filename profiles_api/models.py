@@ -20,7 +20,7 @@ class UserProfileManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, name, password):
+    def create_superuser(self, email: str, name: str, password: str):
         """Create and save a new superuser with given details"""
         # self는 모든 클래스에 자동으로 전달된다.
         user = self.create_user(email, name, password)
